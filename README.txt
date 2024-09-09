@@ -1,6 +1,4 @@
-PROJECT TITLE: TARUC EVENT WEBSITE
-Our website is for student to login/register in to our website and can choose an event that they like and book it.
-And for the admin they can add new event and delete event or student that are register to the site.
+PROJECT TITLE: Inventory Management System
 
 account for Admin login page
 username: Admin
