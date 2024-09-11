@@ -1,16 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author User
- */
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import java.io.*;
-
 
 public class Menu {
 
@@ -32,7 +23,7 @@ public class Menu {
         return credentials;
     }
 
-    public static Customer checkCredentials(String username, String password) {  //validation
+    public static Customer checkCredentials(String username, String password) { // validation
         ArrayList<Customer> customers = Customer.getCustomers();
         for (Customer customer : customers) {
             if (customer.getUsername().equals(username)
@@ -146,34 +137,27 @@ public class Menu {
         for (Product product : products) {
             System.out.println(product);
         }
-        
+
         Menu.writeProductFile(products);
-        
+
     }
-    
-    public static void writeProductFile(ArrayList<Product> products)
-    {
+
+    public static void writeProductFile(ArrayList<Product> products) {
         PrintWriter pw = null;
-        try
-        {
+        try {
             pw = new PrintWriter(new File("inventory.txt"));
-            
-            for(Product product : products)
-            {
-                pw.println(String.format("%3s %15s %5d %7.2f %7.2f ", product.getProductid(), product.getName(), product.getQuantity(), product.getPrice(), product.getProfit()));
+
+            for (Product product : products) {
+                pw.println(String.format("%3s %15s %5d %7.2f %7.2f ", product.getProductid(), product.getName(),
+                        product.getQuantity(), product.getPrice(), product.getProfit()));
             }
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
-        }
-        finally
-        {
-            if(pw != null)
+        } finally {
+            if (pw != null)
                 pw.close();
         }
     }
-
 
     public static void buyProducts(Customer cust) {
         int id;
@@ -235,8 +219,10 @@ public class Menu {
             }
             if (points >= 200) {
                 rec.printReceipt();
-                System.out.println("=============================================================================================");
-                System.out.println("Today you earned " + ptsWon + " points and reached" + " 200 points. You get 20% discount.");
+                System.out.println(
+                        "=============================================================================================");
+                System.out.println(
+                        "Today you earned " + ptsWon + " points and reached" + " 200 points. You get 20% discount.");
                 customer.getCard().setPoints(points - 200);
                 points = customer.getCard().getPoints();
                 totalCost *= 0.8;
@@ -246,16 +232,19 @@ public class Menu {
                 System.out.printf("Total Cost x Discount        = RM%.2f\n", totalCost);
                 System.out.printf("Return Money                 = RM%.2f\n", amount);
                 System.out.println("Thank you for purchasing! See you again!");
-                System.out.println("=============================================================================================");
+                System.out.println(
+                        "=============================================================================================");
             } else {
                 rec.printReceipt();
                 amount = amount - totalCost;
-                System.out.println("=============================================================================================");
+                System.out.println(
+                        "=============================================================================================");
                 System.out.println("Not enough points for a discount yet!");
                 System.out.printf("Total Cost                      = RM%.2f\n", totalCost);
                 System.out.printf("Return Money                    = RM%.2f\n", amount);
                 System.out.println("Thank you for purchasing! See you again!");
-                System.out.println("=============================================================================================");
+                System.out.println(
+                        "=============================================================================================");
             }
         } else {
             double totalCost = rec.getCost();

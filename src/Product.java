@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author User
- */
 import java.util.ArrayList;
 
 public class Product {
@@ -43,9 +34,8 @@ public class Product {
     public void setProfit(Double profit) {
         this.profit = profit;
     }
-    
 
-    public Product(String prodid,String nm, double prc, int q, double p) {
+    public Product(String prodid, String nm, double prc, int q, double p) {
         products.add(this);
         counter++;
         setId(counter);
@@ -122,7 +112,7 @@ public class Product {
     @Override
     public String toString() {
         return String.format("%d\t\t  %s\t\t  %s\t\t  RM%.2f\t\t  %d",
-                getId(),getProductid(), getName(), getPrice(), getQuantity());
+                getId(), getProductid(), getName(), getPrice(), getQuantity());
     }
 
 }

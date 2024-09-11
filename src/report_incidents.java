@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,10 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-/**
- *
- * @author blon8
- */
 public class report_incidents {
 
     private String ID, reason, dateAbsent, approved = "waiting";
@@ -60,7 +55,7 @@ public class report_incidents {
         System.out.print("Enter Your Reason for Absent (must use underscore replace space) : ");
         this.reason = c.nextLine();
         this.reason = c.nextLine();
-        //underscore
+        // underscore
 
         System.out.print("Enter The date Absent (XX/XX/XXXX) : ");
         this.dateAbsent = c.nextLine();
@@ -81,18 +76,16 @@ public class report_incidents {
         System.out.print("Are You Manager (Y/N): ");
         String comfirm = c.next();
         char choose = comfirm.charAt(0);
-      
 
         if (choose == 'Y' || choose == 'y') {
 
-                System.out.print("\nEnter Your Manager ID (Mxxx) : ");
-                String MID = c.nextLine();
-                MID = c.nextLine();
-            
-            
-                System.out.print("Enter Your Password : ");
-                String Password = c.nextLine();
-           
+            System.out.print("\nEnter Your Manager ID (Mxxx) : ");
+            String MID = c.nextLine();
+            MID = c.nextLine();
+
+            System.out.print("Enter Your Password : ");
+            String Password = c.nextLine();
+
             try {
                 BufferedReader br = new BufferedReader(new FileReader("staffdetail.txt"));
                 int count = 0;
@@ -136,11 +129,9 @@ public class report_incidents {
                 this.approved = c.next();
                 System.out.println("");
 
-                    System.out.printf(toString());
-                    System.out.print("\nDo You Approve The Reason ? Approve (A) or Reject(R) : ");
-                    setApproved(x.next());
-
-                
+                System.out.printf(toString());
+                System.out.print("\nDo You Approve The Reason ? Approve (A) or Reject(R) : ");
+                setApproved(x.next());
 
                 try {
                     FileWriter fw = new FileWriter("incident.txt", true);
@@ -162,7 +153,8 @@ public class report_incidents {
         try {
             BufferedReader br = new BufferedReader(new FileReader("incident.txt"));
             System.out.println("\nThis is all the records that find inside file ");
-            System.out.print("----------------------------------------------------------------------------------------\n");
+            System.out.print(
+                    "----------------------------------------------------------------------------------------\n");
             while ((line = br.readLine()) != null) {
 
                 System.out.println(line);
@@ -171,8 +163,9 @@ public class report_incidents {
 
         } catch (Exception e) {
             System.out.println(e);
-        }finally{
-        System.out.println("----------------------------------------------------------------------------------------");
+        } finally {
+            System.out.println(
+                    "----------------------------------------------------------------------------------------");
 
         }
 
@@ -184,6 +177,7 @@ public class report_incidents {
 
     @Override
     public String toString() {
-        return "Staff ID : " + this.ID + " the Absent Reason : " + this.reason + " the Absent date : " + this.dateAbsent + " the approvement :" + this.approved;
+        return "Staff ID : " + this.ID + " the Absent Reason : " + this.reason + " the Absent date : " + this.dateAbsent
+                + " the approvement :" + this.approved;
     }
 }

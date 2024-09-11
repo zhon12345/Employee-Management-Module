@@ -1,17 +1,8 @@
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author User
- */
 public class profit {
 
     private static double sst = 0.02;
@@ -61,7 +52,7 @@ public class profit {
 
                         String c = x.next();
                         int s = Integer.valueOf(c);
-                        //double l = Double.valueOf(c);
+                        // double l = Double.valueOf(c);
 
                         String d = x.next();
                         double z = Double.valueOf(d);
@@ -79,7 +70,8 @@ public class profit {
                     System.out.println("--------------------------------------------------");
                     System.out.printf("Total (RM)Amount of Restock : %.2f\n", total1);
                     System.out.println("--------------------------------------------------------------");
-                    System.out.printf("Total (RM)amount of profit you can earn is : ** %.2f **(not include sst)\n\n", (total - total1));
+                    System.out.printf("Total (RM)amount of profit you can earn is : ** %.2f **(not include sst)\n\n",
+                            (total - total1));
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -114,7 +106,8 @@ public class profit {
                         profittotal += (quantitysell * profitprice);
                         salestotal += (quantitysell * price);
 
-                        System.out.printf("%s \t%s\t%.02f\t\t %d\t\t %.02f\n", id, name, price, quantitysell, profitprice);
+                        System.out.printf("%s \t%s\t%.02f\t\t %d\t\t %.02f\n", id, name, price, quantitysell,
+                                profitprice);
 
                     }
                     Sstprice = (salestotal * profit.getSst());
@@ -125,7 +118,8 @@ public class profit {
                     System.out.println("--------------------------------------------------");
                     System.out.printf("Total (RM)Amount of Original price is : %.2f\n", profittotal);
                     System.out.println("--------------------------------------------------------");
-                    System.out.printf("Total (RM)amount of profit you earn is : *** %.2f *** \n\n", (salestotal - Sstprice - profittotal));
+                    System.out.printf("Total (RM)amount of profit you earn is : *** %.2f *** \n\n",
+                            (salestotal - Sstprice - profittotal));
                 } catch (Exception e) {
                     System.out.println(e);
                 }

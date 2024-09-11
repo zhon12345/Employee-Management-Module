@@ -1,18 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author User
- */
 import java.util.ArrayList;
 
 public class Customer {
 
   private static int counter = 0;
-  private static ArrayList<Customer> customers = new ArrayList<Customer>(); 
+  private static ArrayList<Customer> customers = new ArrayList<Customer>();
   private int id;
   private String name;
   private String username;
@@ -24,7 +15,7 @@ public class Customer {
     setId(counter);
     setName(nm);
     setUsername(usernm);
-    setPassword(passwd);  
+    setPassword(passwd);
   }
 
   public int getCounter() {
@@ -70,7 +61,7 @@ public class Customer {
   public void changePassword(String pass1, String pass2) {
     if (pass1.equals(pass2)) {
       setPassword(pass1);
-      System.out.println("Password has been changed"); 
+      System.out.println("Password has been changed");
     } else {
       System.out.println("Password don't match");
     }

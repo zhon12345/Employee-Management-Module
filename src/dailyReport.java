@@ -1,13 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author User
- */
-import java.io.InputStream;
 import java.util.Date;
 
 public class dailyReport {
@@ -19,8 +9,7 @@ public class dailyReport {
     private int productAmount;
     private final Date dateCreated;
 
-    public dailyReport()
-    {
+    public dailyReport() {
 
         this.dateCreated = new Date();
     }
@@ -72,7 +61,8 @@ public class dailyReport {
 
     @Override
     public String toString() {
-        return "Barcode :" + productBarcode + "| Product Name :" + productName + " | Product Price :" + productPrice + " | Qauntity :" + productQuantity
+        return "Barcode :" + productBarcode + "| Product Name :" + productName + " | Product Price :" + productPrice
+                + " | Qauntity :" + productQuantity
                 + " | Total Amount :" + productAmount + " | Date of Report" + dateCreated;
     }
 

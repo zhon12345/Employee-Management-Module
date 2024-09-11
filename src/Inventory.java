@@ -1,20 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-
-/**
- *
- * @author Lawrence Lee
- */
 public class Inventory {
     private String idNumber;
     private String productName;
     private int quantity;
     private double price;
     private double restockPrice;
-    
+
     public Inventory(String idNumber, String productName, int quantity, double price, double restockPrice) {
         this.idNumber = idNumber;
         this.productName = productName;
@@ -62,12 +52,9 @@ public class Inventory {
     public void setRestockPrice(double restockPrice) {
         this.restockPrice = restockPrice;
     }
-    
-    
-    
-    
+
     @Override
     public String toString() {
-        return ""+ idNumber +"  "+ productName +"  "+ quantity +"  "+ price + "  "+restockPrice;
+        return "" + idNumber + "  " + productName + "  " + quantity + "  " + price + "  " + restockPrice;
     }
 }

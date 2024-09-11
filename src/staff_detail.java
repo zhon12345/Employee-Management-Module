@@ -1,8 +1,6 @@
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -19,13 +17,13 @@ public class staff_detail extends staff {
     ArrayList<String> al = new ArrayList<String>();
     BufferedReader br = null;
     String line;
-    
-    public staff_detail(){
-    super("","","","","","","",0,0,0d,0d);
+
+    public staff_detail() {
+        super("", "", "", "", "", "", "", 0, 0, 0d, 0d);
     }
-    
-    public staff_detail(String username,String userID,String word){
-    super();
+
+    public staff_detail(String username, String userID, String word) {
+        super();
     }
 
     public String getStaffName() {
@@ -51,7 +49,7 @@ public class staff_detail extends staff {
     public void setStaffWord(String staffword) {
         this.staffword = staffword;
     }
-//--------------------------------------------------
+    // --------------------------------------------------
 
     public void value(String name, String ID) {
         ArrayList<String> al = new ArrayList<String>();
@@ -88,7 +86,7 @@ public class staff_detail extends staff {
         }
 
     }
-//--------------------------------------------------
+    // --------------------------------------------------
 
     public void CRUD() {
         int num = 0;
@@ -117,7 +115,7 @@ public class staff_detail extends staff {
 
         } while (num != 4);
     }
-//--------------------------------------------------
+    // --------------------------------------------------
 
     public void incidentPass(String name, String ID) {
         String function = "incidentPass";
@@ -150,8 +148,9 @@ public class staff_detail extends staff {
             System.out.println(e);
         }
     }
-//--------------------------------------------------
- @Override
+
+    // --------------------------------------------------
+    @Override
     public void attendRecord(String name, String ID) {
         String function = "attendRecord";
 
@@ -192,13 +191,13 @@ public class staff_detail extends staff {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            System.out.printf("Staff Name : %s  Staff ID : %s\n" , name,ID);
+            System.out.printf("Staff Name : %s  Staff ID : %s\n", name, ID);
             System.out.println("This Is Your Total Working Hours : " + totalworkTime);
             System.out.println("This Is Your Total Salary : " + salary);
             System.out.println("----------------------------------------");
         }
     }
-//-------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     @Override
     public void modify(String name, String ID) {

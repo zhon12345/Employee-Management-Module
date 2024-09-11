@@ -1,34 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author blon8
- */
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author blon8
- */
 public abstract class staff {
 
     private String name, ID, address, email, Mphone, Bname, password;
     private int IC, Accounumber;
     private double Hsalary, salary;
 
-    public staff(String name, String ID, String address, String email, String Mphone, String Bname, String password, int IC, int Accounumber, double Hsalary, double salary) {
+    public staff(String name, String ID, String address, String email, String Mphone, String Bname, String password,
+            int IC, int Accounumber, double Hsalary, double salary) {
         this.name = name;
         this.ID = ID;
         this.address = address;
@@ -160,63 +143,62 @@ public abstract class staff {
 
             System.out.print("Enter You Password : ");
             String Password = S.nextLine();
-            
-            
+
             if ("M005".equalsIgnoreCase(Id) && "jki011".equalsIgnoreCase(Password)) {
                 number++;
             }
             int num = 1;
-            if(number ==1){
-            try {
-                x = new Scanner(new File("staffdetail.txt"));
-                while (x.hasNext()) {
-                    CID = x.next();
-                    String name = x.next();
-                    CPassword = x.next();
+            if (number == 1) {
+                try {
+                    x = new Scanner(new File("staffdetail.txt"));
+                    while (x.hasNext()) {
+                        CID = x.next();
+                        String name = x.next();
+                        CPassword = x.next();
 
-                    String a = x.nextLine();
+                        String a = x.nextLine();
 
-                    if (Id.equals(CID) && Password.equals(CPassword) && (!"M005".equalsIgnoreCase(CID))) {
+                        if (Id.equals(CID) && Password.equals(CPassword) && (!"M005".equalsIgnoreCase(CID))) {
 
-                        do {
-                            System.out.println("\n==============================");
-                            System.out.println("\nWelcome To The Staff Page : ");
-                            System.out.println("1. Staff Detail");
-                            System.out.println("2. Record Working Time");
-                            System.out.println("3. Report Incidents");
-                            System.out.println("4. Main Page");
-                            System.out.print("Enter The Page That You Need (1-4) :");
-                            num = S.nextInt();
+                            do {
+                                System.out.println("\n==============================");
+                                System.out.println("\nWelcome To The Staff Page : ");
+                                System.out.println("1. Staff Detail");
+                                System.out.println("2. Record Working Time");
+                                System.out.println("3. Report Incidents");
+                                System.out.println("4. Main Page");
+                                System.out.print("Enter The Page That You Need (1-4) :");
+                                num = S.nextInt();
 
-                            switch (num) {
-                                case 1:
+                                switch (num) {
+                                    case 1:
 
-                                    staff_detail f = new staff_detail();
-                                    f.value(Name, Id);
-                                    f.CRUD();
-                                    break;
-                                case 2:
-                                    attend_Date_Calculate b = new attend_Date_Calculate();
-                                    b.Recording(Name, Id);
-                                    System.out.println(b.toString());
-                                    break;
-                                case 3:
-                                    report_incidents c = new report_incidents();
-                                    c.report(Name, Id);
-                                    break;
-                                case 4:
-                                    num = 4;
-                                    count = 4;
-                                    break;
-                                default:
-                                    System.out.println("Please Enter Again");
-                            }
-                        } while (num != 4);
+                                        staff_detail f = new staff_detail();
+                                        f.value(Name, Id);
+                                        f.CRUD();
+                                        break;
+                                    case 2:
+                                        attend_Date_Calculate b = new attend_Date_Calculate();
+                                        b.Recording(Name, Id);
+                                        System.out.println(b.toString());
+                                        break;
+                                    case 3:
+                                        report_incidents c = new report_incidents();
+                                        c.report(Name, Id);
+                                        break;
+                                    case 4:
+                                        num = 4;
+                                        count = 4;
+                                        break;
+                                    default:
+                                        System.out.println("Please Enter Again");
+                                }
+                            } while (num != 4);
+                        }
                     }
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(staff.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(staff.class.getName()).log(Level.SEVERE, null, ex);
-            }
             }
             if (num == 4) {
                 break;
@@ -304,7 +286,8 @@ public abstract class staff {
 
     public String word() {
 
-        return "" + this.getID() + " " + this.getName() + " " + this.getPassword() + " " + this.getAddress() + " " + this.getMphone() + " "
+        return "" + this.getID() + " " + this.getName() + " " + this.getPassword() + " " + this.getAddress() + " "
+                + this.getMphone() + " "
                 + this.getEmail() + " " + this.getIC() + " " + this.getBname() + " " + this.getAccounubmer() + " "
                 + this.getSalary() + " " + this.getHsalary();
     }
@@ -314,7 +297,7 @@ public abstract class staff {
 
         return "\n[Personal Detail] \n"
                 + "Name : " + this.getName() + "(" + this.getID() + ")" + "          Address : " + this.getAddress()
-                + "\nPhone Number : " + this.getMphone()+ "     Email : " + this.getEmail()
+                + "\nPhone Number : " + this.getMphone() + "     Email : " + this.getEmail()
                 + "\nIdentity Card : " + this.getIC()
                 + "\n\n[Payment Detail] "
                 + "\nBank Name : " + this.getBname() + "      Account Number : " + this.getAccounubmer()

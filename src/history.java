@@ -1,20 +1,9 @@
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author blon8
- */
 public class history {
 
     private String name, ID, function, date;
@@ -60,36 +49,36 @@ public class history {
     }
 
     public void checking(String name, String ID) {
-        
+
         String function = "history";
         Date date = new Date();
         String i = String.valueOf(date);
 
         new history().saving(name, ID, function, i);
-        
-                Scanner c = new Scanner(System.in);
+
+        Scanner c = new Scanner(System.in);
 
         try {
             c = new Scanner(new File("history.txt"));
             System.out.println("\nThis Is All The Record That Find Inside File ");
-            System.out.println("----------------------------------------------------------------------------------------");
+            System.out.println(
+                    "----------------------------------------------------------------------------------------");
             System.out.println("History Login In \nID \t NAME \t\t Function \t\t  Date \t     Time  ");
-            System.out.println("----------------------------------------------------------------------------------------");
-            int num =0;
+            System.out.println(
+                    "----------------------------------------------------------------------------------------");
+            int num = 0;
             while (c.hasNext()) {
                 String a = c.next();
                 String b = c.next();
-                String d = c.next();               
+                String d = c.next();
                 String e = c.nextLine();
                 System.out.printf("%-5s\t %-10s \t %-20s\t %-40s\n", a, b, d, e);
-                
 
             }
         } catch (Exception e) {
             System.out.print(e);
         }
         System.out.println("----------------------------------------------------------------------------------------");
-
 
     }
 

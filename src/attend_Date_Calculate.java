@@ -1,18 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-/**
- *
- * @author blon8
- */
 public class attend_Date_Calculate {
 
     calculate c = new calculate();
@@ -59,7 +49,8 @@ public class attend_Date_Calculate {
     public String toString() {
         return "\n[Working Time] \n" + "Staff ID : " + c.getID()
                 + "\nYour Working (Time In) : " + c.getTimeIn() + "       (Time out) :" + c.getTimeOut()
-                + "\nTotal Working Time Is : " + c.getTotalWorkingTime() + " hours    Total Overtime : RM" + (c.getOverTime())
+                + "\nTotal Working Time Is : " + c.getTotalWorkingTime() + " hours    Total Overtime : RM"
+                + (c.getOverTime())
                 + "\nDaily Salary : RM" + c.getDailySalary();
     }
 

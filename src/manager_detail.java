@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -7,14 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author blon8
- */
 public class manager_detail extends staff {
 
     private String managerName, managerID, managerword;
@@ -60,7 +51,7 @@ public class manager_detail extends staff {
     public void setmanagerword(String managerword) {
         this.managerword = managerword;
     }
-//--------------------------------------------------
+    // --------------------------------------------------
 
     public void value(String name, String ID) {
         ArrayList<String> al = new ArrayList<String>();
@@ -97,7 +88,7 @@ public class manager_detail extends staff {
         }
 
     }
-//--------------------------------------------------
+    // --------------------------------------------------
 
     public void CRUD() {
         int num = 0;
@@ -131,7 +122,7 @@ public class manager_detail extends staff {
 
         } while (num != 5);
     }
-//--------------------------------------------------
+    // --------------------------------------------------
 
     public void add(String name, String ID) {
         String function = "addstaff";
@@ -192,7 +183,7 @@ public class manager_detail extends staff {
 
         System.out.println(super.toString());
     }
-//--------------------------------------------------
+    // --------------------------------------------------
 
     public void delete(String name, String ID) {
         String function = "deletestaff";
@@ -214,7 +205,8 @@ public class manager_detail extends staff {
                 br = new BufferedReader(new FileReader("staffdetail.txt"));
                 while ((line = br.readLine()) != null) {
                     if (line.contains(DID)) {
-                        System.out.println("----------------------------------------------------------------------------------------");
+                        System.out.println(
+                                "----------------------------------------------------------------------------------------");
                         System.out.println("This record has been deleted!!\n");
                         System.out.println(line);
                         continue;
@@ -226,7 +218,7 @@ public class manager_detail extends staff {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-//--------------------------------------------------
+            // --------------------------------------------------
             try {
                 FileWriter fw = new FileWriter("staffdetail.txt");
                 for (int t = 0; t < al.size(); t++) {
@@ -238,11 +230,12 @@ public class manager_detail extends staff {
             } catch (Exception e) {
                 System.out.println(e);
             } finally {
-                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println(
+                        "----------------------------------------------------------------------------------------");
             }
         }
     }
-//-------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     @Override
     public void attendRecord(String name, String ID) {

@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author blon8
- */
 public class calculate extends calculateFunction {
 
     private String ID;
@@ -78,29 +69,30 @@ public class calculate extends calculateFunction {
 
         if (num <= 800) {
             setDailySalary((num * this.hoursSalary) / 100);
-            setTotalWorkingTime(num/100);
+            setTotalWorkingTime(num / 100);
             setOverTime(0d);
             this.workingTime = num;
-            
+
         } else if (num > 800) {
             setDailySalary((num * this.hoursSalary) / 100);
             setOverTime(getDailySalary() * 0.5);
-            setTotalWorkingTime(num/100);
+            setTotalWorkingTime(num / 100);
             this.workingTime = num;
-            
+
         } else if (num <= 0) {
             setDailySalary((num * this.hoursSalary) / 100);
             setOverTime(0d);
             setDailySalary(-5d);
             this.workingTime = num;
-            
+
         }
     }
 
     @Override
     public String toString() {
 
-        return "" + this.ID + " " + this.timeIn + " " + this.timeOut + " " + this.totalWorkingTime + " " + this.dailySalary + " " + this.overTime;
+        return "" + this.ID + " " + this.timeIn + " " + this.timeOut + " " + this.totalWorkingTime + " "
+                + this.dailySalary + " " + this.overTime;
     }
 
 }

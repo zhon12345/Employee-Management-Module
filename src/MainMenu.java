@@ -1,37 +1,32 @@
-
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author User
- */
 public class MainMenu {
 
     public static void main(String[] args) {
         int choice = 0;
         do {
             Scanner scanner = new Scanner(System.in);
-            System.out.print("               * *                                                                                      \n");
-            System.out.print("            *    *  *                                                                                   \n");
-            System.out.print("       *  *    *     *  *                                      __                                       \n");
-            System.out.print("      *     *    * *     *                            ___----~~~~~~----___                              \n");
-            System.out.print("  * *   *    *    *    *   *                     _-~~~____-----~~-----____~~~-_                         \n");
-            System.out.print("  *     *  *    * * .#  *   *                 ..~.-~~--   ___------___   --~~-_~..                      \n");
-            System.out.print("  *   *     * #.  .# *   *                  .'_.~.~~---~~~  __----__  ~~~---~` ~`.`.                    \n");
-            System.out.print("   *     '#.  #; #' * *    *              .'.~ .'.~~__---~~~        ~~~---__~`.`. `_`.                  \n");
-            System.out.print("  *   * * '#. ##'       *                ' .'.' /'/~          ,-._          ~-.'.`. `.~.                \n");
-            System.out.print("    *       '###                       /'/'/'/'/'/          _.-'  '--.         `.`.`. ~.`.              \n");
-            System.out.print("              '##                    .~.~.~.~.~.~         .'       _  -` _       `..`. .``.`            \n");
-            System.out.print("               ##.                  .'.'.'.'.'.'         / .----. `_.'----'        .`.`.`.``.           \n");
-            System.out.print("               .##;                | | | | | |           ;/     `                   : .`.`.`.`          \n");
-            System.out.print("               ;###              _|_|_|_|_|_|_         /_;                           : `.`.`.`          \n");
-            System.out.print("               ;###                                WELCOME TO ToyUMT                       \n");
-            System.out.print("              ,####.        ._      ._      ._      ._      ._      ._      ._      ._      ._          \n");
-            System.out.print("             .######.____.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-.    \n");
+            System.out.print("               * *\r\n" + //
+                    "            *    *  *\r\n" + //
+                    "       *  *    *     *  *                                      __\r\n" + //
+                    "      *     *    * *     *                            ___----~~~~~~----___\r\n" + //
+                    "  * *   *    *    *    *   *                     _-~~~____-----~~-----____~~~-_\r\n" + //
+                    "  *     *  *    * * .#  *   *                 ..~.-~~--   ___------___   --~~-_~..\r\n" + //
+                    "  *   *     * #.  .# *   *                  .'_.~.~~---~~~  __----__  ~~~---~` ~`.`.\r\n" + //
+                    "   *     '#.  #; #' * *    *              .'.~ .'.~~__---~~~        ~~~---__~`.`. `_`.\r\n" + //
+                    "  *   * * '#. ##'       *                ' .'.' /'/~          ,-._          ~-.'.`. `.~.\r\n" + //
+                    "    *       '###                       /'/'/'/'/'/          _.-'  '--.         `.`.`. ~.`.\r\n" + //
+                    "              '##                    .~.~.~.~.~.~         .'       _  -` _       `..`. .``.`\r\n" + //
+                    "               ##.                  .'.'.'.'.'.'         / .----. `_.'----'        .`.`.`.``.\r\n"
+                    + //
+                    "               .##;                | | | | | |           ;/     `                   : .`.`.`.`\r\n"
+                    + //
+                    "               ;###              _|_|_|_|_|_|_         /_;                           : `.`.`.`\r\n"
+                    + //
+                    "               ;###                                WELCOME TO ToyUMT\r\n" + //
+                    "              ,####.        ._      ._      ._      ._      ._      ._      ._      ._      ._\r\n"
+                    + //
+                    "             .######.____.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-._)` _.-.");
             System.out.println("");
             System.out.println("== Main Menu ==");
             System.out.println("1: Staff");

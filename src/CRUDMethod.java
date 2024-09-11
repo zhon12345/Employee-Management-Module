@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.*;
 
@@ -30,7 +29,7 @@ public class CRUDMethod {
 
                     System.out.print("How many price of single product (xx.xx): RM");
                     double price = input.nextDouble();
-                    
+
                     System.out.print("How many restock price for single product (xx.xx): RM");
                     double restockPrice = input.nextDouble();
 
@@ -60,7 +59,8 @@ public class CRUDMethod {
                         BufferedReader br = new BufferedReader(new FileReader(filename));
                         while ((line = br.readLine()) != null) {
                             if (line.contains(id)) {
-                                System.out.println("----------------------------------------------------------------------------------------");
+                                System.out.println(
+                                        "----------------------------------------------------------------------------------------");
                                 System.out.println("This record has been deleted!!\n");
                                 System.out.println(line);
                                 continue;
@@ -84,87 +84,89 @@ public class CRUDMethod {
                     } catch (Exception e) {
                         System.out.println(e);
                     } finally {
-                        System.out.println("----------------------------------------------------------------------------------------");
+                        System.out.println(
+                                "----------------------------------------------------------------------------------------");
                     }
 
                     break;
 
                 case 3:
-                try {
-                    BufferedReader br = new BufferedReader(new FileReader(filename));
-                    System.out.print("\nEnter id number to update product (Pxx): ");
-                    id = insert.nextLine();
+                    try {
+                        BufferedReader br = new BufferedReader(new FileReader(filename));
+                        System.out.print("\nEnter id number to update product (Pxx): ");
+                        id = insert.nextLine();
 
-                    while ((line = br.readLine()) != null) {
-                        if (line.contains(id)) {
-                            System.out.print("Enter the value that you want to change (Quantity/Price/Product Name) : ");
-                            String oldValue = input.next();
-                            System.out.print("Enter new value in the class (Quantity/Price/Product Name) : ");
-                            String newValue = input.next();
+                        while ((line = br.readLine()) != null) {
+                            if (line.contains(id)) {
+                                System.out.print(
+                                        "Enter the value that you want to change (Quantity/Price/Product Name) : ");
+                                String oldValue = input.next();
+                                System.out.print("Enter new value in the class (Quantity/Price/Product Name) : ");
+                                String newValue = input.next();
 
-                            al.add(line.replace(oldValue, newValue));
-                            System.out.println("---------------------------------------");
-                            System.out.println("Your Are Successful Modify The Record!!");
-                            System.out.println("---------------------------------------");
+                                al.add(line.replace(oldValue, newValue));
+                                System.out.println("---------------------------------------");
+                                System.out.println("Your Are Successful Modify The Record!!");
+                                System.out.println("---------------------------------------");
 
-                        } else {
-                            al.add(line);
+                            } else {
+                                al.add(line);
 
+                            }
                         }
-                    }
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
-
-                try {
-                    FileWriter fw = new FileWriter(filename);
-
-                    for (int i = 0; i < al.size(); i++) {
-                        fw.append(al.get(i));
-                        fw.append("\n");
+                    } catch (Exception e) {
+                        System.out.println(e);
                     }
 
-                    fw.close();
+                    try {
+                        FileWriter fw = new FileWriter(filename);
 
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
+                        for (int i = 0; i < al.size(); i++) {
+                            fw.append(al.get(i));
+                            fw.append("\n");
+                        }
 
-                break;
+                        fw.close();
+
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+
+                    break;
 
                 case 4:
-                try {
-                    BufferedReader br = new BufferedReader(new FileReader(filename));
-                    System.out.print("\nEnter Product id number (Pxx): ");
-                    id = insert.nextLine();
+                    try {
+                        BufferedReader br = new BufferedReader(new FileReader(filename));
+                        System.out.print("\nEnter Product id number (Pxx): ");
+                        id = insert.nextLine();
 
-                    int count = 0;
+                        int count = 0;
 
-                    while ((line = br.readLine()) != null) {
-                        if (line.contains(id)) {
+                        while ((line = br.readLine()) != null) {
+                            if (line.contains(id)) {
+                                System.out.println("----------------------------------------");
+                                System.out.println("This Is The Record Find Inside The File.\n");
+                                System.out.println(line);
+                                System.out.println("----------------------------------------");
+
+                                count++;
+                            }
+
+                        }
+                        if (count == 0) {
                             System.out.println("----------------------------------------");
-                            System.out.println("This Is The Record Find Inside The File.\n");
-                            System.out.println(line);
+                            System.out.println("This Is The Record Find Inside The File.");
                             System.out.println("----------------------------------------");
-
-                            count++;
                         }
 
-                    }
-                    if (count == 0) {
-                        System.out.println("----------------------------------------");
-                        System.out.println("This Is The Record Find Inside The File.");
-                        System.out.println("----------------------------------------");
+                    } catch (Exception e) {
+                        System.out.println(e);
                     }
 
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
-
-                break;
+                    break;
 
                 case 5:
-                     
+
                     System.out.println("ProdID \tProdName\t Quantity\tPrice");
                     try {
 
@@ -182,19 +184,15 @@ public class CRUDMethod {
 
                             String d = x.next();
                             double z = Double.valueOf(d);
-                            
+
                             String l = x.next();
 
-                         
-                            
-                            System.out.printf("%s \t%s\t %d\t\t%.2f\n",a,b,s,z);
+                            System.out.printf("%s \t%s\t %d\t\t%.2f\n", a, b, s, z);
 
                         }
                     } catch (Exception e) {
                         System.out.println(e);
                     }
-
-                    
 
                     break;
 

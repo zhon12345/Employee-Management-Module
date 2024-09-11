@@ -1,17 +1,8 @@
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author User
- */
 public class testReport1 {
 
     public static void main(String[] args) {
@@ -45,7 +36,8 @@ public class testReport1 {
                 case 1:
                     System.out.println("--------Report Sales--------");
                     System.out.println("----------------------------");
-                    System.out.println("Total Sales Amount :" + (product.getTotalAmount() + product1.getTotalAmount() + product2.getTotalAmount() + product3.getTotalAmount()));
+                    System.out.println("Total Sales Amount :" + (product.getTotalAmount() + product1.getTotalAmount()
+                            + product2.getTotalAmount() + product3.getTotalAmount()));
                     System.out.println("ProdID \tProdName \tPrice(RM) \t Quantitysell");
                     try {
 
@@ -97,12 +89,12 @@ public class testReport1 {
 
                             String c = x.next();
                             int s = Integer.valueOf(c);
-                            //double l = Double.valueOf(c);
+                            // double l = Double.valueOf(c);
 
                             String d = x.next();
                             double z = Double.valueOf(d);
                             total += (s * z);
-                            
+
                             String e = x.next();
                             double profitinventorysell = Double.valueOf(e);
 

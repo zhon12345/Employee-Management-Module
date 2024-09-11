@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author User
- */
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -124,7 +115,8 @@ public class Receipt {
 
     @Override
     public String toString() {
-        return String.format("Date of issue: %s, Total Cost: RM %f, " + "Bought items: %d", getDate(), getCost(), getItems());
+        return String.format("Date of issue: %s, Total Cost: RM %f, " + "Bought items: %d", getDate(), getCost(),
+                getItems());
     }
 
 }

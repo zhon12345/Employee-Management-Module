@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author User
- */
 public class Productlist {
 
     private String proid;
@@ -56,7 +47,8 @@ public class Productlist {
 
     @Override
     public String toString() {
-        return "Barcode :" + proid + " | Product Name :" + proName + " | Product Price :" + proPrice + "| Total QuantitySell :" + quantitysales;
+        return "Barcode :" + proid + " | Product Name :" + proName + " | Product Price :" + proPrice
+                + "| Total QuantitySell :" + quantitysales;
     }
 
 }
