@@ -2,18 +2,16 @@ import java.io.*;
 import java.util.*;
 
 public class CRUDMethod {
-
     public static String filename = "inventory.txt";
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Scanner insert = new Scanner(System.in);
-        File file = new File("inventory.txt");
 
         int choice = 0;
         do {
             menu();
             choice = input.nextInt();
+
             ArrayList<String> al = new ArrayList<String>();
 
             switch (choice) {
@@ -55,7 +53,6 @@ public class CRUDMethod {
                     String line;
 
                     try {
-
                         BufferedReader br = new BufferedReader(new FileReader(filename));
                         while ((line = br.readLine()) != null) {
                             if (line.contains(id)) {
@@ -69,6 +66,7 @@ public class CRUDMethod {
                             }
 
                         }
+                        br.close();
                     } catch (Exception e) {
 
                     }
@@ -114,6 +112,7 @@ public class CRUDMethod {
 
                             }
                         }
+                        br.close();
                     } catch (Exception e) {
                         System.out.println(e);
                     }
@@ -158,7 +157,7 @@ public class CRUDMethod {
                             System.out.println("This Is The Record Find Inside The File.");
                             System.out.println("----------------------------------------");
                         }
-
+                        br.close();
                     } catch (Exception e) {
                         System.out.println(e);
                     }
@@ -171,9 +170,7 @@ public class CRUDMethod {
                     try {
 
                         BufferedReader br = new BufferedReader(new FileReader("inventory.txt"));
-
                         Scanner x = new Scanner(br);
-                        new FileReader("inventory.txt");
 
                         while (x.hasNext()) {
                             String a = x.next();
@@ -185,11 +182,11 @@ public class CRUDMethod {
                             String d = x.next();
                             double z = Double.valueOf(d);
 
-                            String l = x.next();
-
                             System.out.printf("%s \t%s\t %d\t\t%.2f\n", a, b, s, z);
 
                         }
+                        br.close();
+                        x.close();
                     } catch (Exception e) {
                         System.out.println(e);
                     }
@@ -211,11 +208,12 @@ public class CRUDMethod {
                     break;
             }
         } while (choice != 0);
-
+        input.close();
+        insert.close();
     }
 
     public static void menu() {
-        System.out.println("Welcome To Our Inventory Management's MENU");
+        System.out.print("\nWelcome To Our Inventory Management's MENU\n");
         System.out.println("1: Add Product");
         System.out.println("2: Delete Product");
         System.out.println("3: Update Product");
