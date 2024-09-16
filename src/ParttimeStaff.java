@@ -20,6 +20,6 @@ public class ParttimeStaff extends Staff {
     }
 
     public String toString() {
-        return super.toString() + String.format("%d", this.getSalary());
+        return super.toString() + String.format("|%d", this.getSalary());
     }
 }

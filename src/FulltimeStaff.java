@@ -40,6 +40,6 @@ public class FulltimeStaff extends Staff {
     }
 
     public String toString() {
-        return super.toString() + String.format("%.2lf %.2lf %.2lf", this.bonus, this.fine, this.getSalary());
+        return super.toString() + String.format("|%.2lf|%.2lf|%.2lf", this.bonus, this.fine, this.getSalary());
     }
 }
