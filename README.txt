@@ -1,8 +1,8 @@
 PROJECT TITLE: Inventory Management System
 
 account for Admin login page
-username: Admin
-password: Admin
+username: admin
+password: admin1234
 
 normal user account
 username:ali
