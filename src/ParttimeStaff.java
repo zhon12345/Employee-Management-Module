@@ -1,8 +1,7 @@
 public class ParttimeStaff extends Staff {
     private int workHours;
 
-    public ParttimeStaff(int staffCode, String name, String ICNum, String phone, String email, String password,
-            int workHours) {
+    public ParttimeStaff(int staffCode, String name, String ICNum, String phone, String email, String password, int workHours) {
         super(staffCode, name, ICNum, phone, email, password);
         this.workHours = workHours;
     }
@@ -16,10 +15,10 @@ public class ParttimeStaff extends Staff {
     }
 
     public double getSalary() {
-        return workHours * 1000;
+        return workHours * 100;
     }
 
     public String toString() {
-        return super.toString() + String.format("|%d", this.getSalary());
+        return super.toString() + String.format("|%d", this.workHours);
     }
 }

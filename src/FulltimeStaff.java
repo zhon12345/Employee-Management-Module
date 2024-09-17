@@ -3,8 +3,7 @@ public class FulltimeStaff extends Staff {
     private double fine;
     private double baseSalary;
 
-    public FulltimeStaff(int staffCode, String name, String ICNum, String phone, String email, String password,
-            double bonus, double fine, double baseSalary) {
+    public FulltimeStaff(int staffCode, String name, String ICNum, String phone, String email, String password, double bonus, double fine, double baseSalary) {
         super(staffCode, name, ICNum, phone, email, password);
         this.bonus = bonus;
         this.fine = fine;
@@ -40,6 +39,6 @@ public class FulltimeStaff extends Staff {
     }
 
     public String toString() {
-        return super.toString() + String.format("|%.2lf|%.2lf|%.2lf", this.bonus, this.fine, this.getSalary());
+        return super.toString() + String.format("|%.2f|%.2f|%.2f", this.bonus, this.fine, this.baseSalary);
     }
 }
