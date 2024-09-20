@@ -1,4 +1,6 @@
-public class Staff {
+import java.util.Scanner;
+
+public abstract class Staff {
     private int staffCode;
     private String name;
     private String ICNum;
@@ -67,7 +69,63 @@ public class Staff {
         return 0;
     }
 
+    public abstract void viewSalary();
+
+    public abstract void updateDetails(Scanner scanner);
+
+    public void updateDetails(Scanner scanner, Staff staff) {
+        boolean invalid = true;
+        do {
+            System.out.printf("\nCurrent details:\n\nName: %s\nIC Number: %s\nPhone Number: %s\nEmail: %s\nPassword: %s\n", getName(), getICNum(), getPhone(), getEmail(), getPassword());
+
+            System.out.print("\nEnter field to update, done to confirm: ");
+            String field = scanner.nextLine();
+
+            switch (field.toLowerCase()) {
+                case "name":
+                    System.out.print("Enter new name: ");
+                    String name = scanner.nextLine();
+                    setName(name);
+                    break;
+                case "ic number":
+                    System.out.print("Enter new IC Number: ");
+                    String icNum = scanner.nextLine();
+                    setICNum(icNum);
+                    break;
+                case "phone number":
+                    System.out.print("Enter new phone number: ");
+                    String phone = scanner.nextLine();
+                    setPhone(phone);
+                    break;
+                case "email":
+                    System.out.print("Enter new email: ");
+                    String email = scanner.nextLine();
+                    setEmail(email);
+                    break;
+                case "password":
+                    System.out.print("Enter new password: ");
+                    String password = scanner.nextLine();
+                    setPassword(password);
+                    break;
+                case "done":
+                    invalid = false;
+                    break;
+                default:
+                    System.out.println("Invalid option, please try again.");
+                    break;
+            }
+        } while (invalid);
+    }
+
+    public String toString(boolean format) {
+        if (format) {
+            return String.format("%-3d %-20s %-15s %-15s %-20s %-15s", this.staffCode, this.name, this.ICNum, this.phone, this.email, this.password);
+        } else {
+            return String.format("%d|%s|%s|%s|%s|%s", this.staffCode, this.name, this.ICNum, this.phone, this.email, this.password);
+        }
+    }
+
     public String toString() {
-        return String.format("%d|%s|%s|%s|%s|%s", staffCode, name, ICNum, phone, email, password);
+        return String.format("\nCurrent details:\n\nName: %s\nIC Number: %s\nPhone Number: %s\nEmail: %s\nPassword: %s\n", getName(), getICNum(), getPhone(), getEmail(), getPassword());
     }
 }

@@ -14,12 +14,12 @@ public class StaffManagement {
 
     public void login(Scanner scanner, String username, String password) {
         if (username.equals(adminUser) && password.equals(adminPass)) {
-            menu(scanner);
+            adminMenu(scanner);
         } else {
             Staff staff = matchCredentials(username, password);
 
             if (staff != null) {
-                menu(scanner, staff);
+                staffMenu(scanner, staff);
             } else {
                 System.out.println("\nInvalid username or password\n");
             }
@@ -27,7 +27,7 @@ public class StaffManagement {
     }
 
     // Admin Methods
-    private void menu(Scanner scanner) {
+    private void adminMenu(Scanner scanner) {
         int option;
         do {
             System.out.println("\nWelcome Admin, what do you like to do?");
@@ -59,23 +59,21 @@ public class StaffManagement {
     }
 
     private void displayAll() {
-        System.out.println("\nFulltime Staff");
+        System.out.println("\nFull-time Staff");
         System.out.printf("\n%-3s %-20s %-15s %-15s %-20s %-15s %-8s %-8s %-12s %s\n", "ID", "Name", "IC Number", "Phone Number", "Email", "Password", "Bonus", "Fines", "Base Salary", "Salary");
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
         for (Staff staff : management) {
             if (staff instanceof FulltimeStaff) {
-                FulltimeStaff ftStaff = (FulltimeStaff) staff;
-                System.out.printf("%-3d %-20s %-15s %-15s %-20s %-15s %-8.2f %-8.2f %-12.2f %.2f\n", ftStaff.getStaffCode(), ftStaff.getName(), ftStaff.getICNum(), ftStaff.getPhone(), ftStaff.getEmail(), ftStaff.getPassword(), ftStaff.getBonus(), ftStaff.getFine(), ftStaff.getBaseSalary(), ftStaff.getSalary());
+                System.out.print(staff.toString(true));
             }
         }
 
-        System.out.println("\n\nParttime Staff");
+        System.out.println("\nPart-time Staff");
         System.out.printf("\n%-3s %-20s %-15s %-15s %-20s %-15s %-12s %s\n", "ID", "Name", "IC Number", "Phone Number", "Email", "Password", "Work Hours", "Salary");
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
         for (Staff staff : management) {
             if (staff instanceof ParttimeStaff) {
-                ParttimeStaff ptStaff = (ParttimeStaff) staff;
-                System.out.printf("%-3d %-20s %-15s %-15s %-20s %-15s %-12d %.2f\n", ptStaff.getStaffCode(), ptStaff.getName(), ptStaff.getICNum(), ptStaff.getPhone(), ptStaff.getEmail(), ptStaff.getPassword(), ptStaff.getWorkHours(), ptStaff.getSalary());
+                System.out.print(staff.toString(true));
             }
         }
     }
@@ -183,129 +181,7 @@ public class StaffManagement {
             }
 
             if (toUpdate != null) {
-                if (toUpdate instanceof FulltimeStaff) {
-                    boolean invalid = true;
-                    do {
-                        FulltimeStaff staff = (FulltimeStaff) toUpdate;
-
-                        System.out.println("\nCurrent details:\n");
-                        System.out.println("Name: " + staff.getName());
-                        System.out.println("IC Number: " + staff.getICNum());
-                        System.out.println("Phone Number: " + staff.getPhone());
-                        System.out.println("Email: " + staff.getEmail());
-                        System.out.println("Password: " + staff.getPassword());
-                        System.out.println("Bonus: " + staff.getBonus());
-                        System.out.println("Fines: " + staff.getFine());
-                        System.out.println("Base Salary: " + staff.getBaseSalary());
-
-                        System.out.print("\nEnter field to update, done to confirm: ");
-                        String field = scanner.nextLine();
-
-                        switch (field.toLowerCase()) {
-                            case "name":
-                                System.out.print("Enter new name: ");
-                                String name = scanner.nextLine();
-                                staff.setName(name);
-                                break;
-                            case "ic number":
-                                System.out.print("Enter new IC Number: ");
-                                String icNum = scanner.nextLine();
-                                staff.setICNum(icNum);
-                                break;
-                            case "phone number":
-                                System.out.print("Enter new phone number: ");
-                                String phone = scanner.nextLine();
-                                staff.setPhone(phone);
-                                break;
-                            case "email":
-                                System.out.print("Enter new email: ");
-                                String email = scanner.nextLine();
-                                staff.setEmail(email);
-                                break;
-                            case "password":
-                                System.out.print("Enter new password: ");
-                                String password = scanner.nextLine();
-                                staff.setPassword(password);
-                                break;
-                            case "bonus":
-                                System.out.print("Enter new bonus amount: ");
-                                double bonus = Double.parseDouble(scanner.nextLine());
-                                staff.setBonus(bonus);
-                                break;
-                            case "fines":
-                                System.out.print("Enter new fines amount: ");
-                                double fines = Double.parseDouble(scanner.nextLine());
-                                staff.setFine(fines);
-                                break;
-                            case "base salary":
-                                System.out.print("Enter new base salary: ");
-                                double salary = Double.parseDouble(scanner.nextLine());
-                                staff.setBaseSalary(salary);
-                                break;
-                            case "done":
-                                invalid = false;
-                                break;
-                            default:
-                                System.out.println("Invalid option, please try again.");
-                                break;
-                        }
-                    } while (invalid);
-                } else {
-                    boolean invalid = true;
-                    do {
-                        ParttimeStaff staff = (ParttimeStaff) toUpdate;
-
-                        System.out.println("\nCurrent details:\n");
-                        System.out.println("Name: " + staff.getName());
-                        System.out.println("IC Number: " + staff.getICNum());
-                        System.out.println("Phone Number: " + staff.getPhone());
-                        System.out.println("Email: " + staff.getEmail());
-                        System.out.println("Password: " + staff.getPassword());
-                        System.out.println("Work Hours: " + staff.getWorkHours());
-
-                        System.out.print("\nEnter field to update, done to confirm: ");
-                        String field = scanner.nextLine();
-
-                        switch (field.toLowerCase()) {
-                            case "name":
-                                System.out.print("Enter new name: ");
-                                String name = scanner.nextLine();
-                                staff.setName(name);
-                                break;
-                            case "ic number":
-                                System.out.print("Enter new IC Number: ");
-                                String icNum = scanner.nextLine();
-                                staff.setICNum(icNum);
-                                break;
-                            case "phone number":
-                                System.out.print("Enter new phone number: ");
-                                String phone = scanner.nextLine();
-                                staff.setPhone(phone);
-                                break;
-                            case "email":
-                                System.out.print("Enter new email: ");
-                                String email = scanner.nextLine();
-                                staff.setEmail(email);
-                                break;
-                            case "password":
-                                System.out.print("Enter new password: ");
-                                String password = scanner.nextLine();
-                                staff.setPassword(password);
-                                break;
-                            case "work hours":
-                                System.out.print("Enter new work hours: ");
-                                int workHours = Integer.parseInt(scanner.nextLine());
-                                staff.setWorkHours(workHours);
-                                break;
-                            case "done":
-                                invalid = false;
-                                break;
-                            default:
-                                System.out.println("Invalid option, please try again.");
-                                break;
-                        }
-                    } while (invalid);
-                }
+                toUpdate.updateDetails(scanner);
 
                 updateFile();
 
@@ -372,7 +248,7 @@ public class StaffManagement {
         return null;
     }
 
-    private void menu(Scanner scanner, Staff staff) {
+    private void staffMenu(Scanner scanner, Staff staff) {
         int option;
         do {
             System.out.println("\nWelcome " + staff.getName() + ", what do you like to do?");
@@ -404,69 +280,11 @@ public class StaffManagement {
     }
 
     private void viewSalary(Staff staff) {
-        if (staff instanceof FulltimeStaff) {
-            FulltimeStaff ftStaff = (FulltimeStaff) staff;
-
-            System.out.printf("\n\n%-15s: RM%8.2f\n", "Base Salary", ftStaff.getBaseSalary());
-            System.out.printf("%-15s: RM%8.2f\n", "Bonus", ftStaff.getBonus());
-            System.out.printf("%-15s: RM%8.2f\n", "Fines", ftStaff.getFine());
-            System.out.printf("%-15s: RM%8.2f\n\n", "Total Salary", ftStaff.getSalary());
-        } else {
-            ParttimeStaff ptStaff = (ParttimeStaff) staff;
-
-            System.out.printf("\n\n%-15s: RM%8.2f\n", "Base Salary", 100.0);
-            System.out.printf("%-15s: %6d Hrs\n", "Work Hours", ptStaff.getWorkHours());
-            System.out.printf("%-15s: RM%8.2f\n\n", "Total Salary", ptStaff.getSalary());
-        }
+        staff.viewSalary();
     }
 
     private void updateStaff(Scanner scanner, Staff staff) {
-        boolean invalid = true;
-        do {
-            System.out.println("\nCurrent details:\n");
-            System.out.println("Name: " + staff.getName());
-            System.out.println("IC Number: " + staff.getICNum());
-            System.out.println("Phone Number: " + staff.getPhone());
-            System.out.println("Email: " + staff.getEmail());
-            System.out.println("Password: " + staff.getPassword());
-
-            System.out.print("\nEnter field to update, done to confirm: ");
-            String field = scanner.nextLine();
-
-            switch (field.toLowerCase()) {
-                case "name":
-                    System.out.print("Enter new name: ");
-                    String name = scanner.nextLine();
-                    staff.setName(name);
-                    break;
-                case "ic number":
-                    System.out.print("Enter new IC Number: ");
-                    String icNum = scanner.nextLine();
-                    staff.setICNum(icNum);
-                    break;
-                case "phone number":
-                    System.out.print("Enter new phone number: ");
-                    String phone = scanner.nextLine();
-                    staff.setPhone(phone);
-                    break;
-                case "email":
-                    System.out.print("Enter new email: ");
-                    String email = scanner.nextLine();
-                    staff.setEmail(email);
-                    break;
-                case "password":
-                    System.out.print("Enter new password: ");
-                    String password = scanner.nextLine();
-                    staff.setPassword(password);
-                    break;
-                case "done":
-                    invalid = false;
-                    break;
-                default:
-                    System.out.println("Invalid option, please try again.");
-                    break;
-            }
-        } while (invalid);
+        staff.updateDetails(scanner, staff);
 
         updateFile();
         System.out.println("-----------------------------");
@@ -509,7 +327,7 @@ public class StaffManagement {
 
     private void saveToFile(Staff staff) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
-            writer.write(staff.toString());
+            writer.write(staff.toString(false));
             writer.newLine();
         } catch (IOException e) {
             System.out.println("An error occurred write writing to Staff.txt");
@@ -520,7 +338,7 @@ public class StaffManagement {
     private void updateFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (Staff staff : management) {
-                writer.write(staff.toString());
+                writer.write(staff.toString(false));
                 writer.newLine();
             }
         } catch (Exception e) {
