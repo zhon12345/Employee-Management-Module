@@ -58,43 +58,35 @@ public class FulltimeStaff extends Staff {
 
             switch (field) {
                 case "name":
-                    System.out.print("Enter new name: ");
-                    String name = scanner.nextLine();
+                    String name = getValidString(scanner, "Enter new name: ");
                     setName(name);
                     break;
                 case "ic number":
-                    System.out.print("Enter new IC Number: ");
-                    String icNum = scanner.nextLine();
+                    String icNum = getValidString(scanner, "icnum", "Enter new IC Number: ");
                     setICNum(icNum);
                     break;
                 case "phone number":
-                    System.out.print("Enter new phone number: ");
-                    String phone = scanner.nextLine();
+                    String phone = getValidString(scanner, "phone", "Enter new phone number: ");
                     setPhone(phone);
                     break;
                 case "email":
-                    System.out.print("Enter new email: ");
-                    String email = scanner.nextLine();
+                    String email = getValidString(scanner, "email", "Enter new email: ");
                     setEmail(email);
                     break;
                 case "password":
-                    System.out.print("Enter new password: ");
-                    String password = scanner.nextLine();
+                    String password = getValidString(scanner, "Enter new password: ");
                     setPassword(password);
                     break;
                 case "bonus":
-                    System.out.print("Enter new bonus amount: ");
-                    double bonus = Double.parseDouble(scanner.nextLine());
+                    double bonus = getValidDouble(scanner, "Enter new bonus amount: ");
                     setBonus(bonus);
                     break;
                 case "fines":
-                    System.out.print("Enter new fines amount: ");
-                    double fines = Double.parseDouble(scanner.nextLine());
+                    double fines = getValidDouble(scanner, "Enter new fines amount: ");
                     setFine(fines);
                     break;
                 case "base salary":
-                    System.out.print("Enter new base salary: ");
-                    double salary = Double.parseDouble(scanner.nextLine());
+                    double salary = getValidDouble(scanner, "Enter new base salary: ");
                     setBaseSalary(salary);
                     break;
                 case "done":
@@ -106,6 +98,29 @@ public class FulltimeStaff extends Staff {
             }
 
         } while (invalid);
+    }
+
+    public static double getValidDouble(Scanner scanner, String prompt) {
+        double value = -1;
+        boolean valid = false;
+
+        do {
+            System.out.print(prompt);
+            String input = scanner.nextLine();
+
+            if (input.isEmpty()) {
+                System.out.println("Input cannot be empty, please try again.");
+            } else {
+                try {
+                    value = Double.parseDouble(input);
+                    valid = true;
+                } catch (Exception e) {
+                    System.out.println("Invalid number, please try again.");
+                }
+            }
+        } while (!valid);
+
+        return value;
     }
 
     public String toString(boolean format) {

@@ -37,33 +37,27 @@ public class ParttimeStaff extends Staff {
 
             switch (field) {
                 case "name":
-                    System.out.print("Enter new name: ");
-                    String name = scanner.nextLine();
+                    String name = getValidString(scanner, "Enter new name: ");
                     setName(name);
                     break;
                 case "ic number":
-                    System.out.print("Enter new IC Number: ");
-                    String icNum = scanner.nextLine();
+                    String icNum = getValidString(scanner, "icnum", "Enter new IC Number: ");
                     setICNum(icNum);
                     break;
                 case "phone number":
-                    System.out.print("Enter new phone number: ");
-                    String phone = scanner.nextLine();
+                    String phone = getValidString(scanner, "phone", "Enter new phone number: ");
                     setPhone(phone);
                     break;
                 case "email":
-                    System.out.print("Enter new email: ");
-                    String email = scanner.nextLine();
+                    String email = getValidString(scanner, "email", "Enter new email: ");
                     setEmail(email);
                     break;
                 case "password":
-                    System.out.print("Enter new password: ");
-                    String password = scanner.nextLine();
+                    String password = getValidString(scanner, "Enter new password: ");
                     setPassword(password);
                     break;
                 case "work hours":
-                    System.out.print("Enter new work hours: ");
-                    int workHours = Integer.parseInt(scanner.nextLine());
+                    int workHours = getValidInt(scanner, "Enter new work hours: ");
                     setWorkHours(workHours);
                     break;
                 case "done":
@@ -75,6 +69,29 @@ public class ParttimeStaff extends Staff {
             }
 
         } while (invalid);
+    }
+
+    public static int getValidInt(Scanner scanner, String prompt) {
+        int value = -1;
+        boolean valid = false;
+
+        do {
+            System.out.print(prompt);
+            String input = scanner.nextLine();
+
+            if (input.isEmpty()) {
+                System.out.println("Input cannot be empty, please try again.");
+            } else {
+                try {
+                    value = Integer.parseInt(input);
+                    valid = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid number, please try again.");
+                }
+            }
+        } while (!valid);
+
+        return value;
     }
 
     public String toString(boolean format) {

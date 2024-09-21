@@ -28,7 +28,7 @@ public class StaffManagement {
 
     // Admin Methods
     private void adminMenu(Scanner scanner) {
-        int option;
+        int choice;
         do {
             System.out.println("\nWelcome Admin, what do you like to do?");
             System.out.println("1. Report Module");
@@ -37,9 +37,14 @@ public class StaffManagement {
             System.out.println("0. Logout");
             System.out.println("-------------------------------------------");
             System.out.print("Enter your choice: ");
-            option = Integer.parseInt(scanner.nextLine());
 
-            switch (option) {
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                choice = -1;
+            }
+
+            switch (choice) {
                 case 1:
                     break;
                 case 2:
@@ -55,7 +60,7 @@ public class StaffManagement {
                     System.out.println("Invalid option, please try again.");
                     break;
             }
-        } while (option != 0);
+        } while (choice != 0);
     }
 
     private void displayAll() {
@@ -91,7 +96,11 @@ public class StaffManagement {
             System.out.println("0. Back");
             System.out.print("Enter your choice: ");
 
-            choice = Integer.parseInt(scanner.nextLine());
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                choice = -1;
+            }
 
             switch (choice) {
                 case 1:
@@ -115,20 +124,11 @@ public class StaffManagement {
     private void addStaff(Scanner scanner) {
         int id = management.size() + 1;
 
-        System.out.print("\nEnter staff name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter staff IC: ");
-        String ICNum = scanner.nextLine();
-
-        System.out.print("Enter staff phone number: ");
-        String phone = scanner.nextLine();
-
-        System.out.print("Enter staff email: ");
-        String email = scanner.nextLine();
-
-        System.out.print("Enter staff password: ");
-        String password = scanner.nextLine();
+        String name = Staff.getValidString(scanner, "\nEnter staff name: ");
+        String ICNum = Staff.getValidString(scanner, "icnum", "Enter staff IC: ");
+        String phone = Staff.getValidString(scanner, "phone", "Enter staff phone number: ");
+        String email = Staff.getValidString(scanner, "email", "Enter staff email: ");
+        String password = Staff.getValidString(scanner, "Enter staff password: ");
 
         boolean invalid = true;
 
@@ -139,8 +139,7 @@ public class StaffManagement {
             if (position.equalsIgnoreCase("Fulltime")) {
                 invalid = false;
 
-                System.out.print("Enter staff salary: ");
-                double salary = Double.parseDouble(scanner.nextLine());
+                double salary = FulltimeStaff.getValidDouble(scanner, "Enter staff salary: ");
 
                 FulltimeStaff staff = new FulltimeStaff(id, name, ICNum, phone, email, password, 0, 0, salary);
                 management.add(staff);
@@ -153,8 +152,7 @@ public class StaffManagement {
             } else if (position.equalsIgnoreCase("Parttime")) {
                 invalid = false;
 
-                System.out.print("Enter staff working hours: ");
-                int workHours = Integer.parseInt(scanner.nextLine());
+                int workHours = ParttimeStaff.getValidInt(scanner, "Enter staff working hours: ");
 
                 ParttimeStaff staff = new ParttimeStaff(id, name, ICNum, phone, email, password, workHours);
                 management.add(staff);
@@ -163,6 +161,8 @@ public class StaffManagement {
                 System.out.println("-----------------------------");
                 System.out.println("Staff successfully added!");
                 System.out.println("-----------------------------");
+            } else {
+                System.out.println("Invalid option, please try again.");
             }
         } while (invalid);
     }
@@ -249,7 +249,7 @@ public class StaffManagement {
     }
 
     private void staffMenu(Scanner scanner, Staff staff) {
-        int option;
+        int choice;
         do {
             System.out.println("\nWelcome " + staff.getName() + ", what do you like to do?");
             System.out.println("1. Inventory Module");
@@ -258,9 +258,14 @@ public class StaffManagement {
             System.out.println("0. Logout");
             System.out.println("-------------------------------------------");
             System.out.print("Enter your choice: ");
-            option = Integer.parseInt(scanner.nextLine());
 
-            switch (option) {
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                choice = -1;
+            }
+
+            switch (choice) {
                 case 1:
                     break;
                 case 2:
@@ -276,7 +281,7 @@ public class StaffManagement {
                     System.out.println("Invalid option, please try again.");
                     break;
             }
-        } while (option != 0);
+        } while (choice != 0);
     }
 
     private void viewSalary(Staff staff) {
@@ -284,7 +289,7 @@ public class StaffManagement {
     }
 
     private void updateStaff(Scanner scanner, Staff staff) {
-        staff.updateDetails(scanner, staff);
+        staff.updateAccountDetails(scanner);
 
         updateFile();
         System.out.println("-----------------------------");

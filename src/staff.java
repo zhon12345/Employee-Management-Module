@@ -73,7 +73,7 @@ public abstract class Staff {
 
     public abstract void updateDetails(Scanner scanner);
 
-    public void updateDetails(Scanner scanner, Staff staff) {
+    public void updateAccountDetails(Scanner scanner) {
         boolean invalid = true;
         do {
             System.out.printf("\nCurrent details:\n\nName: %s\nIC Number: %s\nPhone Number: %s\nEmail: %s\nPassword: %s\n", getName(), getICNum(), getPhone(), getEmail(), getPassword());
@@ -83,28 +83,23 @@ public abstract class Staff {
 
             switch (field.toLowerCase()) {
                 case "name":
-                    System.out.print("Enter new name: ");
-                    String name = scanner.nextLine();
+                    String name = getValidString(scanner, "Enter new name: ");
                     setName(name);
                     break;
                 case "ic number":
-                    System.out.print("Enter new IC Number: ");
-                    String icNum = scanner.nextLine();
+                    String icNum = getValidString(scanner, "icnum", "Enter new IC Number: ");
                     setICNum(icNum);
                     break;
                 case "phone number":
-                    System.out.print("Enter new phone number: ");
-                    String phone = scanner.nextLine();
+                    String phone = getValidString(scanner, "phone", "Enter new phone number: ");
                     setPhone(phone);
                     break;
                 case "email":
-                    System.out.print("Enter new email: ");
-                    String email = scanner.nextLine();
+                    String email = getValidString(scanner, "email", "Enter new email: ");
                     setEmail(email);
                     break;
                 case "password":
-                    System.out.print("Enter new password: ");
-                    String password = scanner.nextLine();
+                    String password = getValidString(scanner, "Enter new password: ");
                     setPassword(password);
                     break;
                 case "done":
@@ -115,6 +110,54 @@ public abstract class Staff {
                     break;
             }
         } while (invalid);
+    }
+
+    public static String getValidString(Scanner scanner, String prompt) {
+        String input;
+        do {
+            System.out.print(prompt);
+            input = scanner.nextLine();
+
+            if (input.isEmpty()) {
+                System.out.println("Input cannot be empty, please try again.");
+            }
+        } while (input.isEmpty());
+
+        return input;
+    }
+
+    public static String getValidString(Scanner scanner, String type, String prompt) {
+        String input;
+        boolean valid;
+
+        do {
+            System.out.print(prompt);
+            input = scanner.nextLine();
+            valid = true;
+
+            switch (type.toLowerCase()) {
+                case "icnum":
+                    if (!input.matches("^(([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]))([0-9]{2})([0-9]{4})$")) {
+                        System.out.println("Invalid IC number, please try again.");
+                        valid = false;
+                    }
+                    break;
+                case "phone":
+                    if (!input.matches("^[0-9]{10,11}$")) {
+                        System.out.println("Invalid phone number, please try again.");
+                        valid = false;
+                    }
+                    break;
+                case "email":
+                    if (!input.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[a-z]{2,3}$")) {
+                        System.out.println("Invalid email address, please try again.");
+                        valid = false;
+                    }
+                    break;
+            }
+        } while (!valid);
+
+        return input;
     }
 
     public String toString(boolean format) {
