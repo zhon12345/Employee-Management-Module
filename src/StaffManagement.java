@@ -4,7 +4,7 @@ import java.io.*;
 
 public class StaffManagement {
 	private ArrayList<Staff> management = new ArrayList<>();
-	private String filename = "../Staff.txt";
+	private String filename = "Staff.txt";
 	private String adminUser = "admin";
 	private String adminPass = "admin1234";
 
