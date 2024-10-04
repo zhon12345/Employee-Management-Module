@@ -1,22 +1,23 @@
-
 # Employee Management Module
 
-This project is a part of **AACS2204 Object-Oritented Programming Technique** assignment. The goal is to create an Employee Management Module for our [Inventory Management System](https://github.com/YapSJin/Inventory-Management-System) using Java with an emphasis on Object-Oriented Programming (OOP) principles such as inheritance, polymorphism, and encapsulation.
+This project is an assignment for the **AACS2204 Object-Oritented Programming Technique** course. The goal is to create an Employee Management Module for our [Inventory Management System](https://github.com/YapSJin/Inventory-Management-System) using Java with an emphasis on Object-Oriented Programming (OOP) principles such as inheritance, polymorphism, and encapsulation.
+
+**Date submitted:** 22nd September 2024
+
 ## Features
 
-- 🛠️ Admin Panel
+- 🛠️ **Admin Panel**
     - The admin account have access to create, read, update, and delete (CRUD) both full-time and part-time staff members.
-- 👥 Full-time and Part-time Staff Management
+- 👥 **Full-time and Part-time Staff Management**
   - Full-time staff have additional attributes such as bonuses, fines, and a base salary.
   - Part-time staff have their work hours tracked to calculate their salary.
-- 🏷️ Polymorphism and Inheritance
+- 🏷️ **Polymorphism and Inheritance**
   - The module utilizes abstraction by defining an abstract `Staff` class, which is inherited by `FulltimeStaff` and `ParttimeStaff` classes.
   - Methods such as `getSalary()` and `updateDetails()` are overwritten to handle specific behaviors for full-time and part-time staff.
-- 🔒 Encapsulation
+- 🔒 **Encapsulation**
     - All employee attributes, which includes name, IC number, and salary details, are encapsulated within their respective classes. This ensures data security and gives control over how attributes are accessed or modified.
-- 💾 Persistent Storage
+- 💾 **Persistent Storage**
     - Staff information is loaded from and saved to text files, ensuring data persists across sessions. This provides reliable data management even after system restarts.
-
 
 ## Account Credentials
 
@@ -32,6 +33,7 @@ This project is a part of **AACS2204 Object-Oritented Programming Technique** as
     - Part-time Staff
         - **Email:** `akao@gmail.com`
         - **Password:** `123`
+
 ## Run Locally
 
 Clone the project
@@ -57,6 +59,7 @@ Start the program
 ```bash
   java Main
 ```
+
 ## Appendix
 
 - **Setting up a Java Development Kit (JDK):**
@@ -69,7 +72,7 @@ Start the program
     java -version
   ```
 
-- **Online compilers or an IDEs:**
+- **Online compilers or IDEs:**
 
   - Online compilers: [Replit](https://replit.com/), [OnlineGDB](https://www.onlinegdb.com/)
 
